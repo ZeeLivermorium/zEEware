@@ -263,34 +263,34 @@ ${BUILDPATH}${SUFFIX}/%.a:
 #
 # The rule for linking the application.
 #
-${BUILDPATH}${SUFFIX}/%.axf:
-	@if [ 'x${SCATTERgcc_${notdir ${@:.axf=}}}' = x ];                    \
+${BUILDPATH}${SUFFIX}/%.elf:
+	@if [ 'x${SCATTERgcc_${notdir ${@:.elf=}}}' = x ];                    \
 	 then                                                                 \
 	     ldname="${ROOT}/gcc/standalone.ld";                              \
 	 else                                                                 \
-	     ldname="${SCATTERgcc_${notdir ${@:.axf=}}}";                     \
+	     ldname="${SCATTERgcc_${notdir ${@:.elf=}}}";                     \
 	 fi;                                                                  \
 	 if [ 'x${VERBOSE}' = x ];                                            \
 	 then                                                                 \
 	     echo "  LD    ${@} ${LNK_SCP}";                                  \
 	 else                                                                 \
 	     echo ${LD} -T $${ldname}                                         \
-	          --entry ${ENTRY_${notdir ${@:.axf=}}}                       \
-	          ${LDFLAGSgcc_${notdir ${@:.axf=}}}                          \
+	          --entry ${ENTRY_${notdir ${@:.elf=}}}                       \
+	          ${LDFLAGSgcc_${notdir ${@:.elf=}}}                          \
 	          ${LDFLAGS} -o ${@} $(filter %.o %.a, ${^})                  \
 	          '${LIBM}' '${LIBC}' '${LIBGCC}';                            \
 	 fi;                                                                  \
 	${LD} -T $${ldname}                                                   \
-	      --entry ${ENTRY_${notdir ${@:.axf=}}}                           \
-	      ${LDFLAGSgcc_${notdir ${@:.axf=}}}                              \
+	      --entry ${ENTRY_${notdir ${@:.elf=}}}                           \
+	      ${LDFLAGSgcc_${notdir ${@:.elf=}}}                              \
 	      ${LDFLAGS} -o ${@} $(filter %.o %.a, ${^})                      \
 	      '${LIBM}' '${LIBC}' '${LIBGCC}'
-	@${OBJCOPY} -O binary ${@} ${@:.axf=.bin}
+	@${OBJCOPY} -O binary ${@} ${@:.elf=.bin}
 endif
 
 #
 # To create the bin file, we need to make all, which creates both 
-# bin and axf files at once.
+# bin and elf files at once.
 #
 ${BUILDPATH}/${PROJ_NAME}.bin:
 	@if [ ! -f ${BUILDPATH}/${PROJ_NAME}.bin ]; then make all; fi;
@@ -302,12 +302,12 @@ flash: ${BUILDPATH}/$(PROJ_NAME).bin
 	$(LM4FLASH) $<
 
 #
-# Debug depends on the axf, but if we put the dependency as axf here, it 
-# runs into an infinite loop for checking the existence of axf file from 
-# make all. Since bin file and axf file are created at the same time, we 
+# Debug depends on the elf, but if we put the dependency as axf here, it 
+# runs into an infinite loop for checking the existence of elf file from 
+# make all. Since bin file and elf file are created at the same time, we 
 # we can just move the dependency to the bin file. 
 #
 debug: ${BUILDPATH}/$(PROJ_NAME).bin
-	$(OPENOCD) -f board/ek-tm4c123gxl.cfg &
-	$(GDB) ${BUILDPATH}/$(PROJ_NAME).axf
+	$(OPENOCD) --file board/ek-tm4c123gxl.cfg &
+	$(GDB) ${BUILDPATH}/$(PROJ_NAME).elf
 
