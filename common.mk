@@ -288,12 +288,26 @@ ${BUILDPATH}${SUFFIX}/%.axf:
 	@${OBJCOPY} -O binary ${@} ${@:.axf=.bin}
 endif
 
-# ${BUILDPATH}/$(PROJ_NAME).bin: ${BUILDPATH}/$(PROJ_NAME).axf
-#   ${OBJCOPY} -O binary $< $@
 #
-# flash: ${BUILDPATH}/$(PROJ_NAME).bin
-#   $(LM4FLASH) $<
+# To create the bin file, we need to make all, which creates both 
+# bin and axf files at once.
 #
-# debug: ${BUILDPATH}/$(PROJ_NAME).axf
-#   $(OPENOCD) -f board/ek-tm4c123gxl.cfg &
-#   $(GDB) $<
+${BUILDPATH}/${PROJ_NAME}.bin:
+	@if [ ! -f ${BUILDPATH}/${PROJ_NAME}.bin ]; then make all; fi;
+
+#
+# Flash depends on the bin file
+#
+flash: ${BUILDPATH}/$(PROJ_NAME).bin
+	$(LM4FLASH) $<
+
+#
+# Debug depends on the axf, but if we put the dependency as axf here, it 
+# runs into an infinite loop for checking the existence of axf file from 
+# make all. Since bin file and axf file are created at the same time, we 
+# we can just move the dependency to the bin file. 
+#
+debug: ${BUILDPATH}/$(PROJ_NAME).bin
+	$(OPENOCD) -f board/ek-tm4c123gxl.cfg &
+	$(GDB) ${BUILDPATH}/$(PROJ_NAME).axf
+
