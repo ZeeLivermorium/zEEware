@@ -35,10 +35,10 @@ void LED_RED_OFF(void) { GPIO_PORTF_DATA_R &= ~0x02; }
 
 void LED_BLUE_ON(void) { GPIO_PORTF_DATA_R |= 0x04; }
 
-void LED_BLUE_OFF(void) { GPIO_PORTF_DATA_R &= ~0x02; }
+void LED_BLUE_OFF(void) { GPIO_PORTF_DATA_R &= ~0x04; }
 
 void LED_GREEN_ON(void) { GPIO_PORTF_DATA_R |= 0x08; }
 
-void LED_GREEN_OFF(void) { GPIO_PORTF_DATA_R &= ~0x02; }
+void LED_GREEN_OFF(void) { GPIO_PORTF_DATA_R &= ~0x08; }
 
 

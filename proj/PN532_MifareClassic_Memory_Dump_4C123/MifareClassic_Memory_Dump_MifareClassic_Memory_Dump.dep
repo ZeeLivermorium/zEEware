@@ -1,0 +1,32 @@
+Dependencies for Project 'MifareClassic_Memory_Dump', Target 'MifareClassic_Memory_Dump': (DO NOT MODIFY !)
+F (.\MifareClassic_Memory_Dump.c)(0x5B68E8AF)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I../.. -I../../inc -I../../PN532 -I../../PN532_SSI -I../../PN532_I2C -I../../PN532_UART --C99-I s:\ARM\Keil\ARM\RV31\INC-I s:\ARM\Keil\ARM\CMSIS\Include-I s:\ARM\Keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_TM4C123GH6PM -DTM4C123GH6PM-o .\mifareclassic_memory_dump.o --omf_browse .\mifareclassic_memory_dump.crf --depend .\mifareclassic_memory_dump.d)
+I (s:\ARM\Keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
+I (s:\ARM\Keil\ARM\ARMCC\include\string.h)(0x51C87C24)
+I (../../inc/PLL.h)(0x55463E50)
+I (../../inc/Serial.h)(0x5AEB9DC1)
+I (../../PN532/PN532.h)(0x5AED514E)
+F (..\..\PN532\PN532.c)(0x5B68E769)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I../.. -I../../inc -I../../PN532 -I../../PN532_SSI -I../../PN532_I2C -I../../PN532_UART --C99-I s:\ARM\Keil\ARM\RV31\INC-I s:\ARM\Keil\ARM\CMSIS\Include-I s:\ARM\Keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_TM4C123GH6PM -DTM4C123GH6PM-o .\pn532.o --omf_browse .\pn532.crf --depend .\pn532.d)
+I (s:\ARM\Keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
+I (s:\ARM\Keil\ARM\ARMCC\include\string.h)(0x51C87C24)
+I (..\..\PN532\PN532.h)(0x5AED514E)
+I (../../PN532_Setting.h)(0x5AED4E05)
+I (../../PN532_SSI/PN532_SSI.h)(0x5B68E7AB)
+F (..\..\inc\LED.c)(0x5B68E786)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I../.. -I../../inc -I../../PN532 -I../../PN532_SSI -I../../PN532_I2C -I../../PN532_UART --C99-I s:\ARM\Keil\ARM\RV31\INC-I s:\ARM\Keil\ARM\CMSIS\Include-I s:\ARM\Keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_TM4C123GH6PM -DTM4C123GH6PM-o .\led.o --omf_browse .\led.crf --depend .\led.d)
+I (s:\ARM\Keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
+I (..\..\inc\tm4c123gh6pm.h)(0x5A448995)
+F (..\..\inc\PLL.c)(0x5B68E78D)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I../.. -I../../inc -I../../PN532 -I../../PN532_SSI -I../../PN532_I2C -I../../PN532_UART --C99-I s:\ARM\Keil\ARM\RV31\INC-I s:\ARM\Keil\ARM\CMSIS\Include-I s:\ARM\Keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_TM4C123GH6PM -DTM4C123GH6PM-o .\pll.o --omf_browse .\pll.crf --depend .\pll.d)
+I (s:\ARM\Keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
+I (..\..\inc\PLL.h)(0x55463E50)
+I (..\..\inc\tm4c123gh6pm.h)(0x5A448995)
+F (..\..\inc\Serial.c)(0x5B68E796)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I../.. -I../../inc -I../../PN532 -I../../PN532_SSI -I../../PN532_I2C -I../../PN532_UART --C99-I s:\ARM\Keil\ARM\RV31\INC-I s:\ARM\Keil\ARM\CMSIS\Include-I s:\ARM\Keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_TM4C123GH6PM -DTM4C123GH6PM-o .\serial.o --omf_browse .\serial.crf --depend .\serial.d)
+I (s:\ARM\Keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
+I (s:\ARM\Keil\ARM\ARMCC\include\stdarg.h)(0x51C87C24)
+I (..\..\inc\Serial.h)(0x5AEB9DC1)
+I (..\..\inc\tm4c123gh6pm.h)(0x5A448995)
+F (..\..\inc\startup.s)(0x5198478A)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I s:\ARM\Keil\ARM\RV31\INC-I s:\ARM\Keil\ARM\CMSIS\Include-I s:\ARM\Keil\ARM\Inc\TI\TM4C123--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (..\..\PN532_SSI\PN532_SSI.c)(0x5B68E79F)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I../.. -I../../inc -I../../PN532 -I../../PN532_SSI -I../../PN532_I2C -I../../PN532_UART --C99-I s:\ARM\Keil\ARM\RV31\INC-I s:\ARM\Keil\ARM\CMSIS\Include-I s:\ARM\Keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_TM4C123GH6PM -DTM4C123GH6PM-o .\pn532_ssi.o --omf_browse .\pn532_ssi.crf --depend .\pn532_ssi.d)
+I (../../PN532_Setting.h)(0x5AED4E05)
+I (s:\ARM\Keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
+I (s:\ARM\Keil\ARM\ARMCC\include\string.h)(0x51C87C24)
+I (..\..\PN532_SSI\PN532_SSI.h)(0x5B68E7AB)
+I (../../inc/tm4c123gh6pm.h)(0x5A448995)

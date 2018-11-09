@@ -212,6 +212,17 @@ CFLAGS+=${patsubst %,-I%,${subst :, ,${IPATH}}}
 #
 #******************************************************************************
 
+
+${BUILDPATH}/$(PROJ_NAME).elf: main.o
+${BUILDPATH}/$(PROJ_NAME).elf: ${ROOT}/lib/common/src/startup.o
+${BUILDPATH}/$(PROJ_NAME).elf: ${ROOT}/lib/common/src/PLL.o
+${BUILDPATH}/$(PROJ_NAME).elf: ${ROOT}/lib/libdriver.a
+${BUILDPATH}/$(PROJ_NAME).elf: ${ROOT}/lib/tm4c123gxl.ld
+SCATTERgcc_$(PROJ_NAME)=${ROOT}/lib/tm4c123gxl.ld
+ENTRY_$(PROJ_NAME)=ResetISR
+CFLAGSgcc=-DTARGET_IS_TM4C123_RB1
+
+
 #
 # The rule for building the object file from each C source file.
 #
@@ -292,7 +303,7 @@ endif
 # To create the bin file, we need to make all, which creates both 
 # bin and elf files at once.
 #
-${BUILDPATH}/${PROJ_NAME}.bin:
+${BUILDPATH}/${PROJ_NAME}.bin: *.o
 	@if [ ! -f ${BUILDPATH}/${PROJ_NAME}.bin ]; then make all; fi;
 
 #

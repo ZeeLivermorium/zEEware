@@ -1,6 +1,6 @@
 #******************************************************************************
 #
-# Makefile - Rules for building this project.
+# Makefile - Makefile for building this project.
 #
 # Copyright (c) 2012-2017 Texas Instruments Incorporated.  All rights reserved.
 # Software License Agreement
@@ -32,7 +32,7 @@
 #
 # Defines project name
 #
-PROJ_NAME=PN532_ISO14443A_Detect_4C123
+PROJ_NAME=
 
 #
 # Defines the part type that this project uses.
@@ -54,7 +54,6 @@ include ${ROOT}/common.mk
 #
 IPATH += \
 	${ROOT}/lib/common/inc    \
-	${ROOT}/lib/NFC/PN532/inc
 
 #
 # The default rule
@@ -79,10 +78,7 @@ ${BUILDPATH}:
 #
 ${BUILDPATH}/$(PROJ_NAME).elf: main.o
 ${BUILDPATH}/$(PROJ_NAME).elf: ${ROOT}/lib/common/src/startup.o
-${BUILDPATH}/$(PROJ_NAME).elf: ${ROOT}/lib/common/src/Serial.o
 ${BUILDPATH}/$(PROJ_NAME).elf: ${ROOT}/lib/common/src/PLL.o
-${BUILDPATH}/$(PROJ_NAME).elf: ${ROOT}/lib/NFC/PN532/src/PN532.o
-${BUILDPATH}/$(PROJ_NAME).elf: ${ROOT}/lib/NFC/PN532/src/PN532_SSI.o
 ${BUILDPATH}/$(PROJ_NAME).elf: ${ROOT}/lib/libdriver.a
 ${BUILDPATH}/$(PROJ_NAME).elf: ${ROOT}/lib/tm4c123gxl.ld
 SCATTERgcc_$(PROJ_NAME)=${ROOT}/lib/tm4c123gxl.ld

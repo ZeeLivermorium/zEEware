@@ -1,0 +1,617 @@
+ARM Linker, 5.03 [Build 76] [MDK-ARM Lite]
+
+==============================================================================
+
+Section Cross References
+
+    mifareclassic_format_ndef.o(i.main) refers to pll.o(i.PLL_Init) for PLL_Init
+    mifareclassic_format_ndef.o(i.main) refers to pn532.o(i.PN532_Init) for PN532_Init
+    mifareclassic_format_ndef.o(i.main) refers to serial.o(i.Serial_Init) for Serial_Init
+    mifareclassic_format_ndef.o(i.main) refers to pn532.o(i.PN532_getFirmwareVersion) for PN532_getFirmwareVersion
+    mifareclassic_format_ndef.o(i.main) refers to serial.o(i.Serial_println) for Serial_println
+    mifareclassic_format_ndef.o(i.main) refers to pn532.o(i.SAMConfig) for SAMConfig
+    mifareclassic_format_ndef.o(i.main) refers to serial.o(i.Serial_getString) for Serial_getString
+    mifareclassic_format_ndef.o(i.main) refers to pn532.o(i.readPassiveTargetID) for readPassiveTargetID
+    mifareclassic_format_ndef.o(i.main) refers to serial.o(i.Serial_print) for Serial_print
+    mifareclassic_format_ndef.o(i.main) refers to mifareclassic_format_ndef.o(i.delay) for delay
+    mifareclassic_format_ndef.o(i.main) refers to pn532.o(i.mifareClassic_authenticateBlock) for mifareClassic_authenticateBlock
+    mifareclassic_format_ndef.o(i.main) refers to pn532.o(i.mifareClassic_formatNDEF) for mifareClassic_formatNDEF
+    mifareclassic_format_ndef.o(i.main) refers to strlen.o(.text) for strlen
+    mifareclassic_format_ndef.o(i.main) refers to pn532.o(i.mifareClassic_writeNDEFURI) for mifareClassic_writeNDEFURI
+    mifareclassic_format_ndef.o(i.main) refers to mifareclassic_format_ndef.o(.constdata) for .constdata
+    mifareclassic_format_ndef.o(i.main) refers to mifareclassic_format_ndef.o(.data) for serial_buffer
+    mifareclassic_format_ndef.o(.data) refers to mifareclassic_format_ndef.o(.conststring) for .conststring
+    pn532.o(i.PN532_Init) refers to pn532_ssi.o(i.PN532_SSI_Init) for PN532_SSI_Init
+    pn532.o(i.PN532_getFirmwareVersion) refers to pn532_ssi.o(i.writeCommand) for writeCommand
+    pn532.o(i.PN532_getFirmwareVersion) refers to pn532_ssi.o(i.readResponse) for readResponse
+    pn532.o(i.PN532_getFirmwareVersion) refers to pn532.o(.bss) for packet_buffer
+    pn532.o(i.SAMConfig) refers to pn532_ssi.o(i.writeCommand) for writeCommand
+    pn532.o(i.SAMConfig) refers to pn532_ssi.o(i.readResponse) for readResponse
+    pn532.o(i.SAMConfig) refers to pn532.o(.bss) for packet_buffer
+    pn532.o(i.mifareClassic_authenticateBlock) refers to pn532_ssi.o(i.writeCommand) for writeCommand
+    pn532.o(i.mifareClassic_authenticateBlock) refers to pn532_ssi.o(i.readResponse) for readResponse
+    pn532.o(i.mifareClassic_authenticateBlock) refers to pn532.o(.bss) for packet_buffer
+    pn532.o(i.mifareClassic_formatNDEF) refers to pn532.o(i.mifareClassic_writeDataBlock) for mifareClassic_writeDataBlock
+    pn532.o(i.mifareClassic_readDataBlock) refers to pn532_ssi.o(i.writeCommand) for writeCommand
+    pn532.o(i.mifareClassic_readDataBlock) refers to pn532_ssi.o(i.readResponse) for readResponse
+    pn532.o(i.mifareClassic_readDataBlock) refers to memcpya.o(.text) for __aeabi_memcpy
+    pn532.o(i.mifareClassic_readDataBlock) refers to pn532.o(.bss) for packet_buffer
+    pn532.o(i.mifareClassic_writeDataBlock) refers to memcpya.o(.text) for __aeabi_memcpy
+    pn532.o(i.mifareClassic_writeDataBlock) refers to pn532_ssi.o(i.writeCommand) for writeCommand
+    pn532.o(i.mifareClassic_writeDataBlock) refers to pn532_ssi.o(i.readResponse) for readResponse
+    pn532.o(i.mifareClassic_writeDataBlock) refers to pn532.o(.bss) for packet_buffer
+    pn532.o(i.mifareClassic_writeNDEFURI) refers to strlen.o(.text) for strlen
+    pn532.o(i.mifareClassic_writeNDEFURI) refers to memcpya.o(.text) for __aeabi_memcpy
+    pn532.o(i.mifareClassic_writeNDEFURI) refers to pn532.o(i.mifareClassic_writeDataBlock) for mifareClassic_writeDataBlock
+    pn532.o(i.mifareUltralight_readPage) refers to pn532_ssi.o(i.writeCommand) for writeCommand
+    pn532.o(i.mifareUltralight_readPage) refers to pn532_ssi.o(i.readResponse) for readResponse
+    pn532.o(i.mifareUltralight_readPage) refers to pn532.o(.bss) for packet_buffer
+    pn532.o(i.mifareUltralight_writePage) refers to pn532_ssi.o(i.writeCommand) for writeCommand
+    pn532.o(i.mifareUltralight_writePage) refers to pn532_ssi.o(i.readResponse) for readResponse
+    pn532.o(i.mifareUltralight_writePage) refers to pn532.o(.bss) for packet_buffer
+    pn532.o(i.readPassiveTargetID) refers to pn532_ssi.o(i.writeCommand) for writeCommand
+    pn532.o(i.readPassiveTargetID) refers to pn532_ssi.o(i.readResponse) for readResponse
+    pn532.o(i.readPassiveTargetID) refers to pn532.o(.bss) for packet_buffer
+    pn532.o(i.setPassiveActivationRetries) refers to pn532_ssi.o(i.writeCommand) for writeCommand
+    pn532.o(i.setPassiveActivationRetries) refers to pn532_ssi.o(i.readResponse) for readResponse
+    pn532.o(i.setPassiveActivationRetries) refers to pn532.o(.bss) for packet_buffer
+    serial.o(i.Serial_PutHexAndASCII) refers to serial.o(i.Serial_print) for Serial_print
+    serial.o(i.Serial_PutHexAndASCII) refers to serial.o(i.Serial_println) for Serial_println
+    serial.o(i.Serial_getString) refers to serial.o(i.Serial_getChar) for Serial_getChar
+    serial.o(i.Serial_getString) refers to serial.o(i.Serial_putChar) for Serial_putChar
+    serial.o(i.Serial_getUDec) refers to serial.o(i.Serial_getChar) for Serial_getChar
+    serial.o(i.Serial_getUDec) refers to serial.o(i.Serial_putChar) for Serial_putChar
+    serial.o(i.Serial_getUHex) refers to serial.o(i.Serial_getChar) for Serial_getChar
+    serial.o(i.Serial_getUHex) refers to serial.o(i.Serial_putChar) for Serial_putChar
+    serial.o(i.Serial_print) refers to serial.o(i.Serial_putChar) for Serial_putChar
+    serial.o(i.Serial_print) refers to serial.o(i.Serial_putUDec) for Serial_putUDec
+    serial.o(i.Serial_print) refers to serial.o(i.Serial_putUHex) for Serial_putUHex
+    serial.o(i.Serial_print) refers to serial.o(i.Serial_putString) for Serial_putString
+    serial.o(i.Serial_println) refers to serial.o(i.Serial_putChar) for Serial_putChar
+    serial.o(i.Serial_println) refers to serial.o(i.Serial_putUDec) for Serial_putUDec
+    serial.o(i.Serial_println) refers to serial.o(i.Serial_putUHex) for Serial_putUHex
+    serial.o(i.Serial_println) refers to serial.o(i.Serial_putString) for Serial_putString
+    serial.o(i.Serial_println) refers to serial.o(i.Serial_putNewLine) for Serial_putNewLine
+    serial.o(i.Serial_putNewLine) refers to serial.o(i.Serial_putChar) for Serial_putChar
+    serial.o(i.Serial_putString) refers to serial.o(i.Serial_putChar) for Serial_putChar
+    serial.o(i.Serial_putUDec) refers to serial.o(i.Serial_putChar) for Serial_putChar
+    serial.o(i.Serial_putUHex) refers to serial.o(i.Serial_putChar) for Serial_putChar
+    startup.o(RESET) refers to startup.o(STACK) for StackMem
+    startup.o(RESET) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    pn532_ssi.o(i.PN532_SSI_Init) refers to pn532_ssi.o(i.SS_LOW) for SS_LOW
+    pn532_ssi.o(i.PN532_SSI_Init) refers to pn532_ssi.o(i.delay) for delay
+    pn532_ssi.o(i.PN532_SSI_Init) refers to pn532_ssi.o(i.SS_HIGH) for SS_HIGH
+    pn532_ssi.o(i.isReadyForResponse) refers to pn532_ssi.o(i.SS_LOW) for SS_LOW
+    pn532_ssi.o(i.isReadyForResponse) refers to pn532_ssi.o(i.write) for write
+    pn532_ssi.o(i.isReadyForResponse) refers to pn532_ssi.o(i.read) for read
+    pn532_ssi.o(i.isReadyForResponse) refers to pn532_ssi.o(i.delay) for delay
+    pn532_ssi.o(i.isReadyForResponse) refers to pn532_ssi.o(i.SS_HIGH) for SS_HIGH
+    pn532_ssi.o(i.read) refers to pn532_ssi.o(i.reverseBitOrder) for reverseBitOrder
+    pn532_ssi.o(i.readACK) refers to pn532_ssi.o(i.SS_LOW) for SS_LOW
+    pn532_ssi.o(i.readACK) refers to pn532_ssi.o(i.delay) for delay
+    pn532_ssi.o(i.readACK) refers to pn532_ssi.o(i.write) for write
+    pn532_ssi.o(i.readACK) refers to pn532_ssi.o(i.read) for read
+    pn532_ssi.o(i.readACK) refers to pn532_ssi.o(i.SS_HIGH) for SS_HIGH
+    pn532_ssi.o(i.readACK) refers to memcmp.o(.text) for memcmp
+    pn532_ssi.o(i.readACK) refers to pn532_ssi.o(.constdata) for ACK_frame
+    pn532_ssi.o(i.readResponse) refers to pn532_ssi.o(i.waitToBeReadyForResponse) for waitToBeReadyForResponse
+    pn532_ssi.o(i.readResponse) refers to pn532_ssi.o(i.SS_LOW) for SS_LOW
+    pn532_ssi.o(i.readResponse) refers to pn532_ssi.o(i.delay) for delay
+    pn532_ssi.o(i.readResponse) refers to pn532_ssi.o(i.write) for write
+    pn532_ssi.o(i.readResponse) refers to pn532_ssi.o(i.read) for read
+    pn532_ssi.o(i.readResponse) refers to pn532_ssi.o(i.SS_HIGH) for SS_HIGH
+    pn532_ssi.o(i.readResponse) refers to pn532_ssi.o(.data) for command
+    pn532_ssi.o(i.waitToBeReadyForResponse) refers to pn532_ssi.o(i.delay) for delay
+    pn532_ssi.o(i.waitToBeReadyForResponse) refers to pn532_ssi.o(i.isReadyForResponse) for isReadyForResponse
+    pn532_ssi.o(i.write) refers to pn532_ssi.o(i.reverseBitOrder) for reverseBitOrder
+    pn532_ssi.o(i.writeCommand) refers to pn532_ssi.o(i.writeFrame) for writeFrame
+    pn532_ssi.o(i.writeCommand) refers to pn532_ssi.o(i.waitToBeReadyForResponse) for waitToBeReadyForResponse
+    pn532_ssi.o(i.writeCommand) refers to pn532_ssi.o(i.readACK) for readACK
+    pn532_ssi.o(i.writeCommand) refers to pn532_ssi.o(.data) for command
+    pn532_ssi.o(i.writeFrame) refers to pn532_ssi.o(i.SS_LOW) for SS_LOW
+    pn532_ssi.o(i.writeFrame) refers to pn532_ssi.o(i.delay) for delay
+    pn532_ssi.o(i.writeFrame) refers to pn532_ssi.o(i.write) for write
+    pn532_ssi.o(i.writeFrame) refers to pn532_ssi.o(i.SS_HIGH) for SS_HIGH
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry8b.o(.ARM.Collect$$$$0000000A) for _main_cpp_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry9a.o(.ARM.Collect$$$$0000000B) for _main_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry5.o(.ARM.Collect$$$$00000004) for _main_scatterload
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry2.o(.ARM.Collect$$$$00000001) for _main_stk
+    entry2.o(.ARM.Collect$$$$00000001) refers to entry2.o(.ARM.Collect$$$$00002712) for __lit__00000000
+    entry2.o(.ARM.Collect$$$$00002712) refers to startup.o(STACK) for __initial_sp
+    entry2.o(__vectab_stack_and_reset_area) refers to startup.o(STACK) for __initial_sp
+    entry2.o(__vectab_stack_and_reset_area) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    entry5.o(.ARM.Collect$$$$00000004) refers to init.o(.text) for __scatterload
+    entry9a.o(.ARM.Collect$$$$0000000B) refers to mifareclassic_format_ndef.o(i.main) for main
+    entry9b.o(.ARM.Collect$$$$0000000C) refers to mifareclassic_format_ndef.o(i.main) for main
+    init.o(.text) refers to entry5.o(.ARM.Collect$$$$00000004) for __main_after_scatterload
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing pn532.o(i.delay), (24 bytes).
+    Removing pn532.o(i.mifareClassic_isFirstBlock), (34 bytes).
+    Removing pn532.o(i.mifareClassic_isTrailerBlock), (38 bytes).
+    Removing pn532.o(i.mifareClassic_readDataBlock), (76 bytes).
+    Removing pn532.o(i.mifareUltralight_readPage), (80 bytes).
+    Removing pn532.o(i.mifareUltralight_writePage), (64 bytes).
+    Removing pn532.o(i.setPassiveActivationRetries), (56 bytes).
+    Removing led.o(i.LED_BLUE_OFF), (24 bytes).
+    Removing led.o(i.LED_BLUE_ON), (24 bytes).
+    Removing led.o(i.LED_GREEN_OFF), (24 bytes).
+    Removing led.o(i.LED_GREEN_ON), (24 bytes).
+    Removing led.o(i.LED_Init), (108 bytes).
+    Removing led.o(i.LED_RED_OFF), (24 bytes).
+    Removing led.o(i.LED_RED_ON), (24 bytes).
+    Removing serial.o(i.Serial_PutHexAndASCII), (132 bytes).
+    Removing serial.o(i.Serial_getUDec), (76 bytes).
+    Removing serial.o(i.Serial_getUHex), (104 bytes).
+    Removing startup.o(HEAP), (0 bytes).
+    Removing startup.o(.text), (28 bytes).
+
+19 unused section(s) (total 964 bytes) removed from the image.
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    RESET                                    0x00000000   Section      644  startup.o(RESET)
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/string/memcmp.c         0x00000000   Number         0  memcmp.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
+    ../clib/microlib/string/strlen.c         0x00000000   Number         0  strlen.o ABSOLUTE
+    ..\..\PN532\PN532.c                      0x00000000   Number         0  pn532.o ABSOLUTE
+    ..\..\PN532_SSI\PN532_SSI.c              0x00000000   Number         0  pn532_ssi.o ABSOLUTE
+    ..\..\inc\LED.c                          0x00000000   Number         0  led.o ABSOLUTE
+    ..\..\inc\PLL.c                          0x00000000   Number         0  pll.o ABSOLUTE
+    ..\..\inc\Serial.c                       0x00000000   Number         0  serial.o ABSOLUTE
+    ..\..\inc\startup.s                      0x00000000   Number         0  startup.o ABSOLUTE
+    MifareClassic_Format_NDEF.c              0x00000000   Number         0  mifareclassic_format_ndef.o ABSOLUTE
+    dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    handlers.s                               0x00000000   Number         0  handlers.o ABSOLUTE
+    init.s                                   0x00000000   Number         0  init.o ABSOLUTE
+    $v0                                      0x0000026c   Number         0  startup.o(RESET)
+    .ARM.Collect$$$$00000000                 0x00000284   Section        0  entry.o(.ARM.Collect$$$$00000000)
+    .ARM.Collect$$$$00000001                 0x00000284   Section        4  entry2.o(.ARM.Collect$$$$00000001)
+    .ARM.Collect$$$$00000004                 0x00000288   Section        4  entry5.o(.ARM.Collect$$$$00000004)
+    .ARM.Collect$$$$00000008                 0x0000028c   Section        0  entry7b.o(.ARM.Collect$$$$00000008)
+    .ARM.Collect$$$$0000000A                 0x0000028c   Section        0  entry8b.o(.ARM.Collect$$$$0000000A)
+    .ARM.Collect$$$$0000000B                 0x0000028c   Section        8  entry9a.o(.ARM.Collect$$$$0000000B)
+    .ARM.Collect$$$$0000000D                 0x00000294   Section        0  entry10a.o(.ARM.Collect$$$$0000000D)
+    .ARM.Collect$$$$0000000F                 0x00000294   Section        0  entry11a.o(.ARM.Collect$$$$0000000F)
+    .ARM.Collect$$$$00002712                 0x00000294   Section        4  entry2.o(.ARM.Collect$$$$00002712)
+    __lit__00000000                          0x00000294   Data           4  entry2.o(.ARM.Collect$$$$00002712)
+    .text                                    0x00000298   Section        0  memcpya.o(.text)
+    .text                                    0x000002bc   Section        0  strlen.o(.text)
+    .text                                    0x000002ca   Section        0  memcmp.o(.text)
+    .text                                    0x000002e4   Section       36  init.o(.text)
+    i.PLL_Init                               0x00000308   Section        0  pll.o(i.PLL_Init)
+    i.PN532_Init                             0x00000384   Section        0  pn532.o(i.PN532_Init)
+    i.PN532_SSI_Init                         0x0000038c   Section        0  pn532_ssi.o(i.PN532_SSI_Init)
+    i.PN532_getFirmwareVersion               0x000004a8   Section        0  pn532.o(i.PN532_getFirmwareVersion)
+    i.SAMConfig                              0x000004f0   Section        0  pn532.o(i.SAMConfig)
+    i.SS_HIGH                                0x00000524   Section        0  pn532_ssi.o(i.SS_HIGH)
+    SS_HIGH                                  0x00000525   Thumb Code    16  pn532_ssi.o(i.SS_HIGH)
+    i.SS_LOW                                 0x0000053c   Section        0  pn532_ssi.o(i.SS_LOW)
+    SS_LOW                                   0x0000053d   Thumb Code    16  pn532_ssi.o(i.SS_LOW)
+    i.Serial_Init                            0x00000554   Section        0  serial.o(i.Serial_Init)
+    i.Serial_getChar                         0x000005f8   Section        0  serial.o(i.Serial_getChar)
+    i.Serial_getString                       0x00000610   Section        0  serial.o(i.Serial_getString)
+    i.Serial_print                           0x00000652   Section        0  serial.o(i.Serial_print)
+    i.Serial_println                         0x00000754   Section        0  serial.o(i.Serial_println)
+    i.Serial_putChar                         0x0000085c   Section        0  serial.o(i.Serial_putChar)
+    i.Serial_putNewLine                      0x00000874   Section        0  serial.o(i.Serial_putNewLine)
+    i.Serial_putString                       0x00000884   Section        0  serial.o(i.Serial_putString)
+    i.Serial_putUDec                         0x0000089c   Section        0  serial.o(i.Serial_putUDec)
+    i.Serial_putUHex                         0x000008c6   Section        0  serial.o(i.Serial_putUHex)
+    i.__scatterload_copy                     0x000008fa   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x00000908   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x0000090a   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.delay                                  0x00000918   Section        0  mifareclassic_format_ndef.o(i.delay)
+    delay                                    0x00000919   Thumb Code    24  mifareclassic_format_ndef.o(i.delay)
+    i.delay                                  0x00000930   Section        0  pn532_ssi.o(i.delay)
+    delay                                    0x00000931   Thumb Code    24  pn532_ssi.o(i.delay)
+    i.isReadyForResponse                     0x00000948   Section        0  pn532_ssi.o(i.isReadyForResponse)
+    isReadyForResponse                       0x00000949   Thumb Code    40  pn532_ssi.o(i.isReadyForResponse)
+    i.main                                   0x00000970   Section        0  mifareclassic_format_ndef.o(i.main)
+    i.mifareClassic_authenticateBlock        0x00000dcc   Section        0  pn532.o(i.mifareClassic_authenticateBlock)
+    i.mifareClassic_formatNDEF               0x00000e48   Section        0  pn532.o(i.mifareClassic_formatNDEF)
+    i.mifareClassic_writeDataBlock           0x00000edc   Section        0  pn532.o(i.mifareClassic_writeDataBlock)
+    i.mifareClassic_writeNDEFURI             0x00000f24   Section        0  pn532.o(i.mifareClassic_writeNDEFURI)
+    i.read                                   0x000010c8   Section        0  pn532_ssi.o(i.read)
+    read                                     0x000010c9   Thumb Code    46  pn532_ssi.o(i.read)
+    i.readACK                                0x000010fc   Section        0  pn532_ssi.o(i.readACK)
+    readACK                                  0x000010fd   Thumb Code    60  pn532_ssi.o(i.readACK)
+    i.readPassiveTargetID                    0x0000113c   Section        0  pn532.o(i.readPassiveTargetID)
+    i.readResponse                           0x000011a0   Section        0  pn532_ssi.o(i.readResponse)
+    i.reverseBitOrder                        0x000012a8   Section        0  pn532_ssi.o(i.reverseBitOrder)
+    reverseBitOrder                          0x000012a9   Thumb Code    60  pn532_ssi.o(i.reverseBitOrder)
+    i.waitToBeReadyForResponse               0x000012e4   Section        0  pn532_ssi.o(i.waitToBeReadyForResponse)
+    waitToBeReadyForResponse                 0x000012e5   Thumb Code    34  pn532_ssi.o(i.waitToBeReadyForResponse)
+    i.write                                  0x00001308   Section        0  pn532_ssi.o(i.write)
+    write                                    0x00001309   Thumb Code    48  pn532_ssi.o(i.write)
+    i.writeCommand                           0x0000133c   Section        0  pn532_ssi.o(i.writeCommand)
+    i.writeFrame                             0x00001370   Section        0  pn532_ssi.o(i.writeFrame)
+    writeFrame                               0x00001371   Thumb Code   126  pn532_ssi.o(i.writeFrame)
+    .constdata                               0x000013f0   Section      135  mifareclassic_format_ndef.o(.constdata)
+    .constdata                               0x00001477   Section        6  pn532_ssi.o(.constdata)
+    ACK_frame                                0x00001477   Data           6  pn532_ssi.o(.constdata)
+    .conststring                             0x0000147d   Section       38  mifareclassic_format_ndef.o(.conststring)
+    .data                                    0x20000000   Section       28  mifareclassic_format_ndef.o(.data)
+    .data                                    0x2000001c   Section        1  pn532_ssi.o(.data)
+    command                                  0x2000001c   Data           1  pn532_ssi.o(.data)
+    .bss                                     0x20000020   Section      255  pn532.o(.bss)
+    packet_buffer                            0x20000020   Data         255  pn532.o(.bss)
+    STACK                                    0x20000120   Section     1024  startup.o(STACK)
+    StackMem                                 0x20000120   Data           0  startup.o(STACK)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv4$E$P$D$K$B$S$7EM$VFPi3$EXTD16$VFPS$VFMA$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __ARM_use_no_argv                        0x00000000   Number         0  mifareclassic_format_ndef.o ABSOLUTE
+    __Vectors                                0x00000000   Data           0  startup.o(RESET)
+    __cpp_initialize__aeabi_                  - Undefined Weak Reference
+    __cxa_finalize                            - Undefined Weak Reference
+    __decompress                              - Undefined Weak Reference
+    _clock_init                               - Undefined Weak Reference
+    _microlib_exit                            - Undefined Weak Reference
+    Reset_Handler                            0x0000026d   Thumb Code     0  startup.o(RESET)
+    NMI_Handler                              0x00000271   Thumb Code     2  startup.o(RESET)
+    HardFault_Handler                        0x00000273   Thumb Code     2  startup.o(RESET)
+    MemManage_Handler                        0x00000275   Thumb Code     2  startup.o(RESET)
+    BusFault_Handler                         0x00000277   Thumb Code     2  startup.o(RESET)
+    UsageFault_Handler                       0x00000279   Thumb Code     2  startup.o(RESET)
+    SVC_Handler                              0x0000027b   Thumb Code     2  startup.o(RESET)
+    DebugMon_Handler                         0x0000027d   Thumb Code     2  startup.o(RESET)
+    PendSV_Handler                           0x0000027f   Thumb Code     2  startup.o(RESET)
+    SysTick_Handler                          0x00000281   Thumb Code     2  startup.o(RESET)
+    ADC0Seq0_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC0Seq1_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC0Seq2_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC0Seq3_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC1Seq0_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC1Seq1_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC1Seq2_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ADC1Seq3_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    CAN0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    CAN1_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    CAN2_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    Comp0_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    Comp1_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    Comp2_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    Ethernet_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    ExtBus_Handler                           0x00000283   Thumb Code     0  startup.o(RESET)
+    FPU_Handler                              0x00000283   Thumb Code     0  startup.o(RESET)
+    Fan0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    FlashCtl_Handler                         0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortA_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortB_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortC_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortD_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortE_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortF_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortG_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortH_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortJ_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortK_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortL_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortM_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortN_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP1_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP2_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP3_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP4_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP5_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP6_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP7_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortP_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ1_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ2_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ3_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ4_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ5_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ6_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ7_Handler                       0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortQ_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortR_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    GPIOPortS_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    Hibernate_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    I2C0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    I2C1_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    I2C2_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    I2C3_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    I2C4_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    I2C5_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    I2S0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    LPC0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    PECI0_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM0Fault_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM0Generator0_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM0Generator1_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM0Generator2_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM0Generator3_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM1Fault_Handler                        0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM1Generator0_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM1Generator1_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM1Generator2_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    PWM1Generator3_Handler                   0x00000283   Thumb Code     0  startup.o(RESET)
+    Quadrature0_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    Quadrature1_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    Quadrature2_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    SSI0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    SSI1_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    SSI2_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    SSI3_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    SysCtl_Handler                           0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer0A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer0B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer1A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer1B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer2A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer2B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer3A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer3B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer4A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer4B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer5A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    Timer5B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
+    UART0_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART1_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART2_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART3_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART4_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART5_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART6_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    UART7_Handler                            0x00000283   Thumb Code     0  startup.o(RESET)
+    USB0_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    WDT_Handler                              0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer0A_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer0B_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer1A_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer1B_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer2A_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer2B_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer3A_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer3B_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer4A_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer4B_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer5A_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    WideTimer5B_Handler                      0x00000283   Thumb Code     0  startup.o(RESET)
+    uDMA_Error                               0x00000283   Thumb Code     0  startup.o(RESET)
+    uDMA_Handler                             0x00000283   Thumb Code     0  startup.o(RESET)
+    __main                                   0x00000285   Thumb Code     0  entry.o(.ARM.Collect$$$$00000000)
+    _main_stk                                0x00000285   Thumb Code     0  entry2.o(.ARM.Collect$$$$00000001)
+    _main_scatterload                        0x00000289   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    __main_after_scatterload                 0x0000028d   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    _main_clock                              0x0000028d   Thumb Code     0  entry7b.o(.ARM.Collect$$$$00000008)
+    _main_cpp_init                           0x0000028d   Thumb Code     0  entry8b.o(.ARM.Collect$$$$0000000A)
+    _main_init                               0x0000028d   Thumb Code     0  entry9a.o(.ARM.Collect$$$$0000000B)
+    __rt_final_cpp                           0x00000295   Thumb Code     0  entry10a.o(.ARM.Collect$$$$0000000D)
+    __rt_final_exit                          0x00000295   Thumb Code     0  entry11a.o(.ARM.Collect$$$$0000000F)
+    __aeabi_memcpy                           0x00000299   Thumb Code    36  memcpya.o(.text)
+    __aeabi_memcpy4                          0x00000299   Thumb Code     0  memcpya.o(.text)
+    __aeabi_memcpy8                          0x00000299   Thumb Code     0  memcpya.o(.text)
+    strlen                                   0x000002bd   Thumb Code    14  strlen.o(.text)
+    memcmp                                   0x000002cb   Thumb Code    26  memcmp.o(.text)
+    __scatterload                            0x000002e5   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x000002e5   Thumb Code     0  init.o(.text)
+    PLL_Init                                 0x00000309   Thumb Code   118  pll.o(i.PLL_Init)
+    PN532_Init                               0x00000385   Thumb Code     8  pn532.o(i.PN532_Init)
+    PN532_SSI_Init                           0x0000038d   Thumb Code   260  pn532_ssi.o(i.PN532_SSI_Init)
+    PN532_getFirmwareVersion                 0x000004a9   Thumb Code    68  pn532.o(i.PN532_getFirmwareVersion)
+    SAMConfig                                0x000004f1   Thumb Code    48  pn532.o(i.SAMConfig)
+    Serial_Init                              0x00000555   Thumb Code   142  serial.o(i.Serial_Init)
+    Serial_getChar                           0x000005f9   Thumb Code    20  serial.o(i.Serial_getChar)
+    Serial_getString                         0x00000611   Thumb Code    66  serial.o(i.Serial_getString)
+    Serial_print                             0x00000653   Thumb Code   258  serial.o(i.Serial_print)
+    Serial_println                           0x00000755   Thumb Code   262  serial.o(i.Serial_println)
+    Serial_putChar                           0x0000085d   Thumb Code    18  serial.o(i.Serial_putChar)
+    Serial_putNewLine                        0x00000875   Thumb Code    16  serial.o(i.Serial_putNewLine)
+    Serial_putString                         0x00000885   Thumb Code    24  serial.o(i.Serial_putString)
+    Serial_putUDec                           0x0000089d   Thumb Code    42  serial.o(i.Serial_putUDec)
+    Serial_putUHex                           0x000008c7   Thumb Code    52  serial.o(i.Serial_putUHex)
+    __scatterload_copy                       0x000008fb   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x00000909   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x0000090b   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    main                                     0x00000971   Thumb Code   454  mifareclassic_format_ndef.o(i.main)
+    mifareClassic_authenticateBlock          0x00000dcd   Thumb Code   118  pn532.o(i.mifareClassic_authenticateBlock)
+    mifareClassic_formatNDEF                 0x00000e49   Thumb Code   100  pn532.o(i.mifareClassic_formatNDEF)
+    mifareClassic_writeDataBlock             0x00000edd   Thumb Code    68  pn532.o(i.mifareClassic_writeDataBlock)
+    mifareClassic_writeNDEFURI               0x00000f25   Thumb Code   386  pn532.o(i.mifareClassic_writeNDEFURI)
+    readPassiveTargetID                      0x0000113d   Thumb Code    96  pn532.o(i.readPassiveTargetID)
+    readResponse                             0x000011a1   Thumb Code   258  pn532_ssi.o(i.readResponse)
+    writeCommand                             0x0000133d   Thumb Code    46  pn532_ssi.o(i.writeCommand)
+    Region$$Table$$Base                      0x000014a4   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x000014c4   Number         0  anon$$obj.o(Region$$Table)
+    uid                                      0x20000000   Data           7  mifareclassic_format_ndef.o(.data)
+    keyA                                     0x20000007   Data           6  mifareclassic_format_ndef.o(.data)
+    URIContent                               0x20000010   Data           4  mifareclassic_format_ndef.o(.data)
+    URIPrefix                                0x20000014   Data           1  mifareclassic_format_ndef.o(.data)
+    uidLength                                0x20000015   Data           1  mifareclassic_format_ndef.o(.data)
+    serial_buffer                            0x20000018   Data           4  mifareclassic_format_ndef.o(.data)
+    __initial_sp                             0x20000520   Data           0  startup.o(STACK)
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x0000026d
+
+  Load Region LR_1 (Base: 0x00000000, Size: 0x000014e4, Max: 0xffffffff, ABSOLUTE)
+
+    Execution Region ER_RO (Base: 0x00000000, Size: 0x000014c4, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00000000   0x00000284   Code   RO          304  * RESET               startup.o
+    0x00000284   0x00000000   Code   RO          395  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x00000284   0x00000004   Code   RO          406    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x00000288   0x00000004   Code   RO          409    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x0000028c   0x00000000   Code   RO          411    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x0000028c   0x00000000   Code   RO          413    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x0000028c   0x00000008   Code   RO          414    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x00000294   0x00000000   Code   RO          416    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x00000294   0x00000000   Code   RO          418    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x00000294   0x00000004   Code   RO          407    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x00000298   0x00000024   Code   RO          398    .text               mc_w.l(memcpya.o)
+    0x000002bc   0x0000000e   Code   RO          400    .text               mc_w.l(strlen.o)
+    0x000002ca   0x0000001a   Code   RO          402    .text               mc_w.l(memcmp.o)
+    0x000002e4   0x00000024   Code   RO          420    .text               mc_w.l(init.o)
+    0x00000308   0x0000007c   Code   RO          197    i.PLL_Init          pll.o
+    0x00000384   0x00000008   Code   RO           40    i.PN532_Init        pn532.o
+    0x0000038c   0x0000011c   Code   RO          312    i.PN532_SSI_Init    pn532_ssi.o
+    0x000004a8   0x00000048   Code   RO           41    i.PN532_getFirmwareVersion  pn532.o
+    0x000004f0   0x00000034   Code   RO           42    i.SAMConfig         pn532.o
+    0x00000524   0x00000018   Code   RO          313    i.SS_HIGH           pn532_ssi.o
+    0x0000053c   0x00000018   Code   RO          314    i.SS_LOW            pn532_ssi.o
+    0x00000554   0x000000a4   Code   RO          212    i.Serial_Init       serial.o
+    0x000005f8   0x00000018   Code   RO          214    i.Serial_getChar    serial.o
+    0x00000610   0x00000042   Code   RO          215    i.Serial_getString  serial.o
+    0x00000652   0x00000102   Code   RO          218    i.Serial_print      serial.o
+    0x00000754   0x00000106   Code   RO          219    i.Serial_println    serial.o
+    0x0000085a   0x00000002   PAD
+    0x0000085c   0x00000018   Code   RO          220    i.Serial_putChar    serial.o
+    0x00000874   0x00000010   Code   RO          221    i.Serial_putNewLine  serial.o
+    0x00000884   0x00000018   Code   RO          222    i.Serial_putString  serial.o
+    0x0000089c   0x0000002a   Code   RO          223    i.Serial_putUDec    serial.o
+    0x000008c6   0x00000034   Code   RO          224    i.Serial_putUHex    serial.o
+    0x000008fa   0x0000000e   Code   RO          424    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x00000908   0x00000002   Code   RO          425    i.__scatterload_null  mc_w.l(handlers.o)
+    0x0000090a   0x0000000e   Code   RO          426    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x00000918   0x00000018   Code   RO            1    i.delay             mifareclassic_format_ndef.o
+    0x00000930   0x00000018   Code   RO          315    i.delay             pn532_ssi.o
+    0x00000948   0x00000028   Code   RO          316    i.isReadyForResponse  pn532_ssi.o
+    0x00000970   0x0000045c   Code   RO            2    i.main              mifareclassic_format_ndef.o
+    0x00000dcc   0x0000007c   Code   RO           44    i.mifareClassic_authenticateBlock  pn532.o
+    0x00000e48   0x00000094   Code   RO           45    i.mifareClassic_formatNDEF  pn532.o
+    0x00000edc   0x00000048   Code   RO           49    i.mifareClassic_writeDataBlock  pn532.o
+    0x00000f24   0x000001a4   Code   RO           50    i.mifareClassic_writeNDEFURI  pn532.o
+    0x000010c8   0x00000034   Code   RO          317    i.read              pn532_ssi.o
+    0x000010fc   0x00000040   Code   RO          318    i.readACK           pn532_ssi.o
+    0x0000113c   0x00000064   Code   RO           53    i.readPassiveTargetID  pn532.o
+    0x000011a0   0x00000108   Code   RO          319    i.readResponse      pn532_ssi.o
+    0x000012a8   0x0000003c   Code   RO          320    i.reverseBitOrder   pn532_ssi.o
+    0x000012e4   0x00000022   Code   RO          321    i.waitToBeReadyForResponse  pn532_ssi.o
+    0x00001306   0x00000002   PAD
+    0x00001308   0x00000034   Code   RO          322    i.write             pn532_ssi.o
+    0x0000133c   0x00000034   Code   RO          323    i.writeCommand      pn532_ssi.o
+    0x00001370   0x0000007e   Code   RO          324    i.writeFrame        pn532_ssi.o
+    0x000013ee   0x00000002   PAD
+    0x000013f0   0x00000087   Data   RO            3    .constdata          mifareclassic_format_ndef.o
+    0x00001477   0x00000006   Data   RO          325    .constdata          pn532_ssi.o
+    0x0000147d   0x00000026   Data   RO            4    .conststring        mifareclassic_format_ndef.o
+    0x000014a3   0x00000001   PAD
+    0x000014a4   0x00000020   Data   RO          422    Region$$Table       anon$$obj.o
+
+
+    Execution Region ER_RW (Base: 0x20000000, Size: 0x00000020, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000000   0x0000001c   Data   RW            5    .data               mifareclassic_format_ndef.o
+    0x2000001c   0x00000001   Data   RW          326    .data               pn532_ssi.o
+
+
+    Execution Region ER_ZI (Base: 0x20000020, Size: 0x00000500, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000020   0x000000ff   Zero   RW           55    .bss                pn532.o
+    0x2000011f   0x00000001   PAD
+    0x20000120   0x00000400   Zero   RW          302    STACK               startup.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+      1140        662        173         28          0       6603   mifareclassic_format_ndef.o
+       124          6          0          0          0        527   pll.o
+       996        104          0          0        255       6547   pn532.o
+      1100         66          6          1          0       8579   pn532_ssi.o
+       932         32          0          0          0       6428   serial.o
+       644        620          0          0       1024        804   startup.o
+
+    ----------------------------------------------------------------------
+      4942       1490        212         32       1280      29488   Object Totals
+         0          0         32          0          0          0   (incl. Generated)
+         6          0          1          3          1          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         0          0          0          0          0          0   entry.o
+         0          0          0          0          0          0   entry10a.o
+         0          0          0          0          0          0   entry11a.o
+         8          4          0          0          0          0   entry2.o
+         4          0          0          0          0          0   entry5.o
+         0          0          0          0          0          0   entry7b.o
+         0          0          0          0          0          0   entry8b.o
+         8          4          0          0          0          0   entry9a.o
+        30          0          0          0          0          0   handlers.o
+        36          8          0          0          0         68   init.o
+        26          0          0          0          0         80   memcmp.o
+        36          0          0          0          0         68   memcpya.o
+        14          0          0          0          0         68   strlen.o
+
+    ----------------------------------------------------------------------
+       162         16          0          0          0        284   Library Totals
+         0          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+       162         16          0          0          0        284   mc_w.l
+
+    ----------------------------------------------------------------------
+       162         16          0          0          0        284   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+      5104       1506        212         32       1280      26820   Grand Totals
+      5104       1506        212         32       1280      26820   ELF Image Totals
+      5104       1506        212         32          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                 5316 (   5.19kB)
+    Total RW  Size (RW Data + ZI Data)              1312 (   1.28kB)
+    Total ROM Size (Code + RO Data + RW Data)       5348 (   5.22kB)
+
+==============================================================================
+
