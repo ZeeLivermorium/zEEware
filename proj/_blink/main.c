@@ -16,7 +16,7 @@ int main(void) {
     LED_Init();
     SysTick_Init();
     // string.h function call tests: memcpy and strlen
-    char BB8[3];
+    volatile char BB8[500];
     memcpy(BB8, "BB8", 3);
     // blinking, protect your eyes!
     while(strlen(BB8)) {

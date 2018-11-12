@@ -17,6 +17,8 @@ void LED_RED_ON(void);
 
 void LED_RED_OFF(void);
 
+void LED_RED_TOGGLE(void);
+
 void LED_BLUE_ON(void);
 
 void LED_BLUE_OFF(void);

@@ -59,7 +59,7 @@ IPATH += \
 # The default rule
 #
 all: ${BUILDPATH}
-all: ${BUILDPATH}/$(PROJ_NAME).elf
+all: ${BUILDPATH}/$(PROJ_NAME).axf
 
 #
 # The rule to clean out all the build products.
@@ -74,10 +74,20 @@ ${BUILDPATH}:
 	@mkdir -p ${BUILDPATH}
 
 #
-# Rules for building. Add lib object files you needed below
+# Rules for building. 
 #
-${BUILDPATH}/$(PROJ_NAME).elf: ${ROOT}/lib/common/src/LED.o
-${BUILDPATH}/$(PROJ_NAME).elf: ${ROOT}/lib/common/src/SysTick.o
+${BUILDPATH}/$(PROJ_NAME).axf: main.o
+${BUILDPATH}/$(PROJ_NAME).axf: ${ROOT}/lib/common/src/startup.o
+${BUILDPATH}/$(PROJ_NAME).axf: ${ROOT}/lib/common/src/PLL.o
+${BUILDPATH}/$(PROJ_NAME).axf: ${ROOT}/lib/libdriver.a
+${BUILDPATH}/$(PROJ_NAME).axf: ${ROOT}/lib/tm4c123gxl.ld
+SCATTERgcc_$(PROJ_NAME)=${ROOT}/lib/tm4c123gxl.ld
+ENTRY_$(PROJ_NAME)=ResetISR
+CFLAGSgcc=-DTARGET_IS_TM4C123_RB1
+
+# Add lib object files you needed below
+${BUILDPATH}/$(PROJ_NAME).axf: ${ROOT}/lib/common/src/LED.o
+${BUILDPATH}/$(PROJ_NAME).axf: ${ROOT}/lib/common/src/SysTick.o
 
 #
 # Include the automatically generated dependency files.

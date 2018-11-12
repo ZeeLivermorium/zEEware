@@ -1,6 +1,6 @@
 #******************************************************************************
 #
-# Makefile - Makefile for building this project.
+# Makefile - Rules for building this project.
 #
 # Copyright (c) 2012-2017 Texas Instruments Incorporated.  All rights reserved.
 # Software License Agreement
@@ -32,7 +32,7 @@
 #
 # Defines project name
 #
-PROJ_NAME=
+PROJ_NAME=PN532_ISO14443A_Detect_4C123
 
 #
 # Defines the part type that this project uses.
@@ -54,6 +54,7 @@ include ${ROOT}/common.mk
 #
 IPATH += \
 	${ROOT}/lib/common/inc    \
+	${ROOT}/lib/NFC/PN532/inc
 
 #
 # The default rule
@@ -86,7 +87,9 @@ ENTRY_$(PROJ_NAME)=ResetISR
 CFLAGSgcc=-DTARGET_IS_TM4C123_RB1
 
 # Add lib object files you needed below
-
+${BUILDPATH}/$(PROJ_NAME).axf: ${ROOT}/lib/common/src/Serial.o
+${BUILDPATH}/$(PROJ_NAME).axf: ${ROOT}/lib/NFC/PN532/src/PN532.o
+${BUILDPATH}/$(PROJ_NAME).axf: ${ROOT}/lib/NFC/PN532/src/PN532_SSI.o
 
 #
 # Include the automatically generated dependency files.

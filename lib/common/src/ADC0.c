@@ -1,4 +1,3 @@
-
 #include <stdint.h>
 #include "tm4c123gh6pm.h"
 
@@ -30,7 +29,7 @@ void ADC0_Init(void){
                      ADC_SSCTL0_END0;                      // 1st sample is the end of sequence
     ADC0_IM_R &= ~ADC_IM_MASK3;                            // disable SS3 interrupts
     ADC0_SAC_R &= ADC_SAC_AVG_M;                           // clear hardware averaging bit field
-    ADC0_SAC_R |= ADC_SAC_AVG_OFF;                         // hardware averaging setting
+    ADC0_SAC_R |= ADC_SAC_AVG_16X;                         // hardware averaging setting
     ADC0_ACTSS_R |= ADC_ACTSS_ASEN3;                       // enable sample sequencer 3
 }
 

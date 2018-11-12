@@ -34,12 +34,13 @@ uint8_t uid[] = { 0, 0, 0, 0, 0, 0, 0 };  // Buffer to store the returned UID
 uint8_t uidLength;                        // Length of the UID (4 or 7 bytes depending on ISO14443A card type)
 
 int main(void) {
-    int x = pow(2, 3);
     /*-- TM4C123 Init --*/
     PLL_Init(Bus80MHz);                   // bus clock at 80 MHz
     PN532_Init();                         // init and wake up PN532
     Serial_Init();                        // for serial I/O
     
+    uint32_t x = pow(2, 3);
+    Serial_println("%u", x);
     /*-- PN532 Init --*/
     uint32_t firmwareVersion = PN532_getFirmwareVersion();
     
@@ -49,7 +50,6 @@ int main(void) {
     }
     
     /* output firmware info */
-    Serial_println("%u", x);
     Serial_println("Found PN5%x", (firmwareVersion >> 24) & 0xFF);
     Serial_println("Firmware Version %u.%u", (firmwareVersion >> 16) & 0xFF, (firmwareVersion >> 8) & 0xFF);
     Serial_println("-------------------------------");

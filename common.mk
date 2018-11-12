@@ -213,16 +213,6 @@ CFLAGS+=${patsubst %,-I%,${subst :, ,${IPATH}}}
 #******************************************************************************
 
 
-${BUILDPATH}/$(PROJ_NAME).elf: main.o
-${BUILDPATH}/$(PROJ_NAME).elf: ${ROOT}/lib/common/src/startup.o
-${BUILDPATH}/$(PROJ_NAME).elf: ${ROOT}/lib/common/src/PLL.o
-${BUILDPATH}/$(PROJ_NAME).elf: ${ROOT}/lib/libdriver.a
-${BUILDPATH}/$(PROJ_NAME).elf: ${ROOT}/lib/tm4c123gxl.ld
-SCATTERgcc_$(PROJ_NAME)=${ROOT}/lib/tm4c123gxl.ld
-ENTRY_$(PROJ_NAME)=ResetISR
-CFLAGSgcc=-DTARGET_IS_TM4C123_RB1
-
-
 #
 # The rule for building the object file from each C source file.
 #
@@ -274,37 +264,37 @@ ${BUILDPATH}${SUFFIX}/%.a:
 #
 # The rule for linking the application.
 #
-${BUILDPATH}${SUFFIX}/%.elf:
-	@if [ 'x${SCATTERgcc_${notdir ${@:.elf=}}}' = x ];                    \
+${BUILDPATH}${SUFFIX}/%.axf:
+	@if [ 'x${SCATTERgcc_${notdir ${@:.axf=}}}' = x ];                    \
 	 then                                                                 \
 	     ldname="${ROOT}/gcc/standalone.ld";                              \
 	 else                                                                 \
-	     ldname="${SCATTERgcc_${notdir ${@:.elf=}}}";                     \
+	     ldname="${SCATTERgcc_${notdir ${@:.axf=}}}";                     \
 	 fi;                                                                  \
 	 if [ 'x${VERBOSE}' = x ];                                            \
 	 then                                                                 \
 	     echo "  LD    ${@} ${LNK_SCP}";                                  \
 	 else                                                                 \
 	     echo ${LD} -T $${ldname}                                         \
-	          --entry ${ENTRY_${notdir ${@:.elf=}}}                       \
-	          ${LDFLAGSgcc_${notdir ${@:.elf=}}}                          \
+	          --entry ${ENTRY_${notdir ${@:.axf=}}}                       \
+	          ${LDFLAGSgcc_${notdir ${@:.axf=}}}                          \
 	          ${LDFLAGS} -o ${@} $(filter %.o %.a, ${^})                  \
 	          '${LIBM}' '${LIBC}' '${LIBGCC}';                            \
 	 fi;                                                                  \
 	${LD} -T $${ldname}                                                   \
-	      --entry ${ENTRY_${notdir ${@:.elf=}}}                           \
-	      ${LDFLAGSgcc_${notdir ${@:.elf=}}}                              \
+	      --entry ${ENTRY_${notdir ${@:.axf=}}}                           \
+	      ${LDFLAGSgcc_${notdir ${@:.axf=}}}                              \
 	      ${LDFLAGS} -o ${@} $(filter %.o %.a, ${^})                      \
 	      '${LIBM}' '${LIBC}' '${LIBGCC}'
-	@${OBJCOPY} -O binary ${@} ${@:.elf=.bin}
+	@${OBJCOPY} -O binary ${@} ${@:.axf=.bin}
 endif
 
 #
-# To create the bin file, we need to make all, which creates both 
-# bin and elf files at once.
+# To create the bin file, we need to make all, which creates both
+# bin and axf files at once.
 #
-${BUILDPATH}/${PROJ_NAME}.bin: *.o
-	@if [ ! -f ${BUILDPATH}/${PROJ_NAME}.bin ]; then make all; fi;
+${BUILDPATH}/${PROJ_NAME}.bin:
+	@if [ ! -e ${BUILDPATH}/${PROJ_NAME}.bin ]; then make all; fi;
 
 #
 # Flash depends on the bin file
@@ -313,12 +303,12 @@ flash: ${BUILDPATH}/$(PROJ_NAME).bin
 	$(LM4FLASH) $<
 
 #
-# Debug depends on the elf, but if we put the dependency as axf here, it 
-# runs into an infinite loop for checking the existence of elf file from 
-# make all. Since bin file and elf file are created at the same time, we 
-# we can just move the dependency to the bin file. 
+# Debug depends on the axf, but if we put the dependency as axf here, it
+# runs into an infinite loop for checking the existence of axf file from
+# make all. Since bin file and axf file are created at the same time, we
+# we can just move the dependency to the bin file.
 #
 debug: ${BUILDPATH}/$(PROJ_NAME).bin
 	$(OPENOCD) --file board/ek-tm4c123gxl.cfg &
-	$(GDB) ${BUILDPATH}/$(PROJ_NAME).elf
+	$(GDB) ${BUILDPATH}/$(PROJ_NAME).axf
 
