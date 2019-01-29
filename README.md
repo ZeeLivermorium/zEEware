@@ -6,37 +6,35 @@ This is a gcc tools for embedded system projects with TI TM4C123GXL Microcontrol
 ## Installation
 ### Mac OS
 #### ARM GCC Tools
-    ```bash
-        brew tap PX4/homebrew-px4
-        brew update
-        brew install gcc-arm-none-eabi
-    ```
+```bash
+    brew tap PX4/homebrew-px4
+    brew update
+    brew install gcc-arm-none-eabi
+```
 You might run into problems when *arm-none-eabi-gcc* command is not found after installation. Try 
-    ```bash
-        brew link gcc-arm-none-eabi
-    ```
+```bash
+    brew link gcc-arm-none-eabi
+```
 see what homebrew tells you to fix linking problem.
 **NOTE**: The old magic command
-    ```bash
-        brew cask install gcc-arm-embedded
-    ```
+```bash
+    brew cask install gcc-arm-embedded
+```
 does not work anymore. They removed it from cask. Put it here in case you are wondering or you are trying to use [UT-Rasware](https://github.com/ut-ras/Rasware) installation guide.
 
 #### Lm4tools
-    ```bash
-        brew install lm4tools
-    ```
+```bash
+    brew install lm4tools
+```
 #### OpenOCD
-    ```bash
-        brew install open-ocd
-    ```
-#### Test
-Go to proj/_blink folder to do a *make* to see if it can compile. Try *make flash* if you want to test it on board to see some RGBs. 
+```bash
+    brew install open-ocd
+```
 
 ### Linux (Need to be tested)
 Please refer to Josh Minor's Linux set up [script](https://github.com/jishminor/ee445l-linux/blob/master/setup-linux.sh)
 
-#### Test
+### Test
 Go to proj/_blink folder to do a *make* to see if it can compile. Try *make flash* if you want to test it on board to see some RGBs. 
 
 ## Run Projects
