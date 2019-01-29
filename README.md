@@ -16,6 +16,7 @@ You might run into problems when *arm-none-eabi-gcc* command is not found after 
     brew link gcc-arm-none-eabi
 ```
 see what homebrew tells you to fix linking problem.
+
 **NOTE**: The old magic command
 ```bash
     brew cask install gcc-arm-embedded
