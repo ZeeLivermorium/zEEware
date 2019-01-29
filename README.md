@@ -11,6 +11,13 @@ This is a gcc tools for embedded system projects with TI TM4C123GXL Microcontrol
     brew update
     brew install gcc-arm-none-eabi
 ```
+
+Run
+```bash
+    arm-none-eabi-gcc --version
+```
+to confirm your installation.
+
 You might run into problems when *arm-none-eabi-gcc* command is not found after installation. Try 
 ```bash
     brew link gcc-arm-none-eabi
