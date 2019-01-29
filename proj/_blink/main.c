@@ -8,6 +8,7 @@
  */
 
 #include <string.h>
+#include <math.h>
 #include "tm4c123gh6pm.h"
 #include "LED.h"
 #include "SysTick.h"
@@ -16,10 +17,11 @@ int main(void) {
     LED_Init();
     SysTick_Init();
     // string.h function call tests: memcpy and strlen
-    volatile char BB8[500];
+    // math.h function call test: pow
+    char BB8[500];
     memcpy(BB8, "BB8", 3);
     // blinking, protect your eyes!
-    while(strlen(BB8)) {
+    while(pow(strlen(BB8), 2)) {
         LED_RED_ON();
         SysTick_Wait10ms(10);  // wait
         LED_RED_OFF();

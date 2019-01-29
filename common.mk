@@ -294,7 +294,12 @@ endif
 # bin and axf files at once.
 #
 ${BUILDPATH}/${PROJ_NAME}.bin:
-	@if [ ! -e ${BUILDPATH}/${PROJ_NAME}.bin ]; then make all; fi;
+	@if [ -e ${BUILDPATH} ];                    \
+	then                                        \
+		rm -rf ${BUILDPATH} ${wildcard *~};       \
+		rm *.o *.d;                               \
+	fi;                                         \
+	make all;                                   \
 
 #
 # Flash depends on the bin file
@@ -311,4 +316,11 @@ flash: ${BUILDPATH}/$(PROJ_NAME).bin
 debug: ${BUILDPATH}/$(PROJ_NAME).bin
 	$(OPENOCD) --file board/ek-tm4c123gxl.cfg &
 	$(GDB) ${BUILDPATH}/$(PROJ_NAME).axf
+
+#
+# The rule to clean out all the build products.
+#
+clean:
+	@rm -rf ${BUILDPATH} ${wildcard *~}
+	@rm *.o *.d
 

@@ -27,8 +27,8 @@ int main(void) {
     /*-- TM4C123 Init --*/
     PLL_Init(Bus80MHz);                   	    // bus clock at 80 MHz
     Serial_Init();                        	    // for serial I/O
-    I2C_Init();                                 // must initialize I2C before initialize VL53L0X
-    if(!VL53L0X_Init(VL53L0X_I2C_ADDR, 0)) {  	// init and wake up VL53L0X
+
+    if(!VL53L0X_Init(VL53L0X_I2C_ADDR, 0)) { 	  // init and wake up VL53L0X
         Serial_println("Fail to initialize VL53L0X :(");
         delay(1);
         return 0;

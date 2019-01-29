@@ -53,19 +53,14 @@ include ${ROOT}/common.mk
 # Where to find header files that do not live in the source directory.
 #
 IPATH += \
-	${ROOT}/lib/common/inc    
+	${ROOT}/lib/common/inc          \
+	${ROOT}/lib/_tm4c               \
 
 #
 # The default rule
 #
 all: ${BUILDPATH}
 all: ${BUILDPATH}/$(PROJ_NAME).axf
-
-#
-# The rule to clean out all the build products.
-#
-clean:
-	@rm -rf ${BUILDPATH} ${wildcard *~}
 
 #
 # The rule to create the target directory.
@@ -77,11 +72,11 @@ ${BUILDPATH}:
 # Rules for building. 
 #
 ${BUILDPATH}/$(PROJ_NAME).axf: main.o
-${BUILDPATH}/$(PROJ_NAME).axf: ${ROOT}/lib/common/src/startup.o
+${BUILDPATH}/$(PROJ_NAME).axf: ${ROOT}/lib/_tm4c/startup.o
+${BUILDPATH}/$(PROJ_NAME).axf: ${ROOT}/lib/_tm4c/libdriver.a
+${BUILDPATH}/$(PROJ_NAME).axf: ${ROOT}/lib/_tm4c/tm4c123gxl.ld
 ${BUILDPATH}/$(PROJ_NAME).axf: ${ROOT}/lib/common/src/PLL.o
-${BUILDPATH}/$(PROJ_NAME).axf: ${ROOT}/lib/libdriver.a
-${BUILDPATH}/$(PROJ_NAME).axf: ${ROOT}/lib/tm4c123gxl.ld
-SCATTERgcc_$(PROJ_NAME)=${ROOT}/lib/tm4c123gxl.ld
+SCATTERgcc_$(PROJ_NAME)=${ROOT}/lib/_tm4c/tm4c123gxl.ld
 ENTRY_$(PROJ_NAME)=ResetISR
 CFLAGSgcc=-DTARGET_IS_TM4C123_RB1
 
@@ -95,3 +90,4 @@ ${BUILDPATH}/$(PROJ_NAME).axf: ${ROOT}/lib/common/src/SysTick.o
 ifneq (${MAKECMDGOALS},clean)
 -include ${wildcard ${BUILDPATH}/*.d} __dummy__
 endif
+
