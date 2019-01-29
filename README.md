@@ -1,4 +1,4 @@
-#GCC Tools for TI TM4C123GXL MCU
+# GCC Tools for TI TM4C123GXL MCU
 
 ## Introduction
 This is a gcc tools for embedded system projects with TI TM4C123GXL Microcontroller on Mac OS and Linux. We hate IDEs.
