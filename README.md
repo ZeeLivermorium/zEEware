@@ -36,7 +36,7 @@ does not work anymore. They removed it from cask. Put it here in case you are wo
 Please refer to Josh Minor's Linux set up [script](https://github.com/jishminor/ee445l-linux/blob/master/setup-linux.sh)
 
 ### Test
-Go to proj/_blink folder to do a *make* to see if it can compile. Try *make flash* if you want to test it on board to see some RGBs. 
+Go to ```proj/_blink``` folder to do a *make* to see if it can compile. Try *make flash* if you want to test it on board to see some RGBs. 
 
 ## Run Projects
 As the last step in the installation, you should run the test [blink project](proj/_blink) by running *make* in the project folder to make sure it compiles properly. You need to run *make clean* when you try to clean up your build product. By running *make flash* you should be able to flash it on to your TM4C123G Launchpad.
