@@ -1573,10 +1573,11 @@ int fgetc (FILE *f){
   return 0;
 }
 // Function called when file error occurs.
-//int ferror (FILE *f){
-//  /* Your implementation of ferror */
-//  return EOF;
-//}
+int ferror (FILE *f){
+  /* Your implementation of ferror */
+  return EOF;
+}
+
 // Abstraction of general output device
 // Volume 2 section 3.4.5
 

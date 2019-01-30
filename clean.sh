@@ -8,6 +8,6 @@
 #************************
 
 # clean up all build product in all sub folders
-clean:
-	rm -r *.o *.d
-
+find . -name "*.o" -exec rm -rf {} \;
+find . -name "*.d" -exec rm -rf {} \;
+find . -name "build" -type d | xargs rm -rf
