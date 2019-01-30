@@ -46,12 +46,14 @@ Please refer to Josh Minor's Linux set up [script](https://github.com/jishminor/
 After the installation, you should run the test [blink](proj/_blink) project by running ```make``` in the project dir ```proj/_blink``` to make sure it compiles properly. You need to run ```make clean``` when you try to clean up your build product. By running ```make flash``` you should be able to flash it on to your TM4C123G Launchpad and you will see RGBs. 
 To run your own project, you can use the [template Makefile](proj/Makefile) and your configuration to it. Please refer to my other projects to see how I write my makefile.
 1. Add project name
-In [template Makefile](proj/Makefile#L35) put your project name here.
+In [template Makefile Line 35](proj/Makefile#L35) put your project name here.
 2. Add include paths
-In [template Makefile](proj/Makefile#L57), add where your h files are. 
+In [template Makefile Line 57](proj/Makefile#L57), add where your h files are. 
 3. Add the c files you are tyring to use
-In [template Makefile](proj/Makefile#L83), add c files used in your project in terms of object files.
+In [template Makefile Line 83](proj/Makefile#L83), add c files used in your project in terms of object files.
 4. make (flash)
+## GDB
+write up soon
 
 ## Acknowledgment
 [Josh Minor](https://github.com/jishminor)'s linux tools has been a super valuable referenece when I tried to tackle problems. You can find his tools [here](https://github.com/jishminor/ee445l-linux).
